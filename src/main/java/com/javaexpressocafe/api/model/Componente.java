@@ -9,6 +9,11 @@ import java.math.BigInteger;
 import java.util.Objects;
 import java.util.UUID;
 
+/**
+ * @author Matheus Marques
+ * @since 20/02/2022
+ */
+
 @Entity
 @Table(name = "componente")
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})

@@ -2,11 +2,14 @@ package com.javaexpressocafe.api.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -35,10 +38,8 @@ public class Ingrediente {
     @OneToOne(mappedBy = "ingrediente")
     private Componente componente;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "produto_id", referencedColumnName = "id")
-    @JsonBackReference
-    private Produto produto;
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    private List<Produto> produto = new ArrayList<Produto>();
 
     public UUID getId() {
         return id;
@@ -80,11 +81,11 @@ public class Ingrediente {
         this.componente = componente;
     }
 
-    public Produto getProduto() {
+    public List<Produto> getProduto() {
         return produto;
     }
 
-    public void setProduto(Produto produto) {
+    public void setProduto(List<Produto> produto) {
         this.produto = produto;
     }
 

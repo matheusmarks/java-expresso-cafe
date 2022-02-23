@@ -22,7 +22,7 @@ public class ProdutoServiceImplementation implements ProdutoService {
 
     @Override
     public Produto create(Produto produto) {
-        return null;
+        return produtoRepository.save(produto);
     }
 
     @Override

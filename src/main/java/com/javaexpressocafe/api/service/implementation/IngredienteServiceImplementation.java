@@ -1,7 +1,6 @@
 package com.javaexpressocafe.api.service.implementation;
 
 import com.javaexpressocafe.api.model.Ingrediente;
-import com.javaexpressocafe.api.model.Produto;
 import com.javaexpressocafe.api.repository.IngredienteRepository;
 import com.javaexpressocafe.api.repository.ProdutoRepository;
 import com.javaexpressocafe.api.service.IngredienteService;
@@ -11,6 +10,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
+
+/**
+ * @author Matheus Marques
+ * @since 20/02/2022
+ */
 
 @Service
 public class IngredienteServiceImplementation implements IngredienteService {
@@ -28,9 +32,6 @@ public class IngredienteServiceImplementation implements IngredienteService {
 
     @Override
     public Ingrediente create(Ingrediente ingrediente) {
-        Produto produto = produtoRepository.getById(ingrediente.getProduto().getId());
-        ingrediente.setProduto(produto);
-
         return ingredienteRepository.save(ingrediente);
     }
 
@@ -52,5 +53,13 @@ public class IngredienteServiceImplementation implements IngredienteService {
     public void delete(UUID id) {
         Ingrediente ingredienteToBeDeleted = getByUUID(id);
         ingredienteRepository.delete(ingredienteToBeDeleted);
+    }
+
+    public Ingrediente getByNome(String nome) {
+        return ingredienteRepository.getByNome(nome);
+    }
+
+    public void createAll(List<Ingrediente> ingredientes) {
+        ingredienteRepository.saveAll(ingredientes);
     }
 }

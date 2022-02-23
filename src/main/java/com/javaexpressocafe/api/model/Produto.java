@@ -2,14 +2,17 @@ package com.javaexpressocafe.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * @author Matheus Marques
@@ -33,9 +36,13 @@ public class Produto {
 
     private String imagem;
 
-    @OneToMany(mappedBy = "produto")
-    @JsonManagedReference
-    private List<Ingrediente> ingrediente;
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(
+            name = "ingrediente_produto",
+            joinColumns = @JoinColumn(name = "produto_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingrediente_id")
+    )
+    private List<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
 
     public UUID getId() {
         return id;
@@ -69,12 +76,16 @@ public class Produto {
         this.imagem = imagem;
     }
 
-    public List<Ingrediente> getIngrediente() {
-        return ingrediente;
+    public List<Ingrediente> getIngredientes() {
+        return ingredientes;
     }
 
-    public void setIngrediente(List<Ingrediente> ingrediente) {
-        this.ingrediente = ingrediente;
+    public void setIngredientes(List<Ingrediente> ingredientes) {
+        this.ingredientes = ingredientes;
+    }
+
+    public void addIngrediente(Ingrediente ingrediente) {
+        ingredientes.add(ingrediente);
     }
 
     @Override

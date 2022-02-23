@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/ingrediente")
@@ -22,6 +23,9 @@ public class IngredienteController {
 
     @PostMapping
     public Ingrediente saveIngrediente(@RequestBody Ingrediente ingrediente) {
+
+
+
         return ingredienteServiceImplementation.create(ingrediente);
     }
 
