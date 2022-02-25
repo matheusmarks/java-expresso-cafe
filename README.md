@@ -4,7 +4,7 @@
 <p align="center">
   <img alt="top language" src="https://img.shields.io/github/languages/top/matheusmarks/java-expresso-cafe.svg" />
   <img alt="top language" src="https://img.shields.io/github/languages/top/matheusmarks/java-expresso-cafe.svg" />
-  <img alt="top language" src="https://img.shields.io/github/languages/top/matheusmarks/java-expresso-cafe.svg" />
+  <img alt="last commit" src="https://img.shields.io/github/languages/top/matheusmarks/java-expresso-cafe.svg" />
 </p>
 
 
@@ -24,5 +24,5 @@ $ cd java-expresso-cafe
 ```
 
 <h3>Licença</h3>
-<a href="https://github.com/matheusmarks/helper-box-ionic/blob/main/LICENSE">MIT Licence</p>
+<a href="https://github.com/matheusmarks/java-expresso-cafe/blob/main/LICENSE">MIT Licence</p>
 
