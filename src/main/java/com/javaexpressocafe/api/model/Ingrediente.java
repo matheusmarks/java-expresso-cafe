@@ -8,10 +8,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * @author Matheus Marques
@@ -38,8 +35,8 @@ public class Ingrediente {
     @OneToOne(mappedBy = "ingrediente")
     private Componente componente;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    private List<Produto> produto = new ArrayList<Produto>();
+    @ManyToMany
+    private Set<Produto> produto = new HashSet<>();
 
     public UUID getId() {
         return id;
@@ -81,11 +78,11 @@ public class Ingrediente {
         this.componente = componente;
     }
 
-    public List<Produto> getProduto() {
+    public Set<Produto> getProduto() {
         return produto;
     }
 
-    public void setProduto(List<Produto> produto) {
+    public void setProduto(Set<Produto> produto) {
         this.produto = produto;
     }
 

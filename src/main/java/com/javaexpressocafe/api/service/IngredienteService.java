@@ -6,6 +6,11 @@ import com.javaexpressocafe.api.model.Ingrediente;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * @author Matheus Marques
+ * @since 20/02/2022
+ */
+
 public interface IngredienteService {
 
     public List<Ingrediente> listAll();

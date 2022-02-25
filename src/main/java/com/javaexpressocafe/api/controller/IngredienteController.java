@@ -9,6 +9,11 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+/**
+ * @author Matheus Marques
+ * @since 20/02/2022
+ */
+
 @RestController
 @RequestMapping("/ingrediente")
 public class IngredienteController {
@@ -23,9 +28,6 @@ public class IngredienteController {
 
     @PostMapping
     public Ingrediente saveIngrediente(@RequestBody Ingrediente ingrediente) {
-
-
-
         return ingredienteServiceImplementation.create(ingrediente);
     }
 
@@ -35,8 +37,7 @@ public class IngredienteController {
     }
 
     @PutMapping("/{id}")
-    public Ingrediente updateIngrediente(@PathVariable(value= "id") UUID id,
-                                         @RequestBody Ingrediente ingrediente) {
+    public Ingrediente updateIngrediente(@PathVariable(value= "id") UUID id, @RequestBody Ingrediente ingrediente) {
         return ingredienteServiceImplementation.update(id, ingrediente);
     }
 

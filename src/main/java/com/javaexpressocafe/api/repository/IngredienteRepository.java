@@ -7,6 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
+/**
+ * @author Matheus Marques
+ * @since 20/02/2022
+ */
+
 @Repository
 public interface IngredienteRepository extends JpaRepository<Ingrediente, UUID> {
 

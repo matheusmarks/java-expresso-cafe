@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 /**
+ * Implementação da interface IngredienteService utilizada para persistência de um Ingrediente
  * @author Matheus Marques
  * @since 20/02/2022
  */
@@ -21,9 +22,6 @@ public class IngredienteServiceImplementation implements IngredienteService {
 
     @Autowired
     IngredienteRepository ingredienteRepository;
-
-    @Autowired
-    ProdutoRepository produtoRepository;
 
     @Override
     public List<Ingrediente> listAll() {

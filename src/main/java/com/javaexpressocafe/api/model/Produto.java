@@ -8,10 +8,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -36,13 +33,13 @@ public class Produto {
 
     private String imagem;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
     @JoinTable(
             name = "ingrediente_produto",
             joinColumns = @JoinColumn(name = "produto_id"),
             inverseJoinColumns = @JoinColumn(name = "ingrediente_id")
     )
-    private List<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
+    private Set<Ingrediente> ingredientes = new HashSet<>();
 
     public UUID getId() {
         return id;
@@ -76,15 +73,16 @@ public class Produto {
         this.imagem = imagem;
     }
 
-    public List<Ingrediente> getIngredientes() {
+    public Set<Ingrediente> getIngredientes() {
         return ingredientes;
     }
 
-    public void setIngredientes(List<Ingrediente> ingredientes) {
+    public void setIngredientes(Set<Ingrediente> ingredientes) {
         this.ingredientes = ingredientes;
     }
 
     public void addIngrediente(Ingrediente ingrediente) {
+        ingredientes.clear();
         ingredientes.add(ingrediente);
     }
 
