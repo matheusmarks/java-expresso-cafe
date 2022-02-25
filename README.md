@@ -18,7 +18,7 @@ $ cd java-expresso-cafe
 ```
 
 <h3>Requisitos</h3>
-<p> - Necessario ter o Mysql instalado em sua máquina ou utilize algum container do docker com a imagem do mysql instalada</p>
+<p> - Necessário ter o <i>imysql instalado</i> em sua máquina ou utilize algum container do docker com a imagem do mysql instalada</p>
 <p> - Logo em seguida crie um database com o nome javaexpressocafe</p>
 <p> - Vá até o arquivo application.properties e mude a propriedade spring.jpa.hibernate.ddl-auto= para <i>create</i></p>
 <p> - Após a primeira execução do projeto mude a propriedade spring.jpa.hibernate.ddl-auto= para <i>update</i></p>
