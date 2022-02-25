@@ -3,10 +3,11 @@
 
 <p align="center">
   <img alt="top language" src="https://img.shields.io/github/languages/top/matheusmarks/java-expresso-cafe.svg" />
-  <img alt="repo-size" src="https://img.shields.io/github/languages/repo-size/matheusmarks/java-expresso-cafe.svg" />
-  <img alt="last commit" src="https://img.shields.io/github/languages/last-commit/matheusmarks/java-expresso-cafe.svg" />
+  <img alt="repo-size" src="https://img.shields.io/github/repo-size/matheusmarks/java-expresso-cafe.svg" />
+  <img alt="last commit" src="https://img.shields.io/github/last-commit/matheusmarks/java-expresso-cafe.svg" />
 </p>
 
+<h3>Como baixar e utilizar o projeto</h3>
 
  ```bash
 # Clonar o repositório
@@ -21,5 +22,6 @@ $ cd java-expresso-cafe
 <p> - Logo em seguida crie um database com o nome javaexpressocafe</p>
 <p> - Vá até o arquivo application.properties e mude a propriedade spring.jpa.hibernate.ddl-auto= para <i>create</i></p>
 <p> - Após a primeira execução do projeto mude a propriedade spring.jpa.hibernate.ddl-auto= para <i>update</i></p>
+<p> - Para testar as requisições, você precisa ter algum API Client instalado (<i>Postman, Insomnia, SwaggerUI, etc.</i>)</p> 
 
 
