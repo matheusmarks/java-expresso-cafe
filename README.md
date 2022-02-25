@@ -25,3 +25,5 @@ $ cd java-expresso-cafe
 <p> - Para testar as requisições, você precisa ter algum API Client instalado (<i>Postman, Insomnia, SwaggerUI, etc.</i>)</p> 
 
 
+<h3>Licença</h3>
+<a link="https://github.com/matheusmarks/java-expresso-cafe/blob/main/LICENSE">MIT Licence</a>
